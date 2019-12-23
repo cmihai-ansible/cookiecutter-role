@@ -62,7 +62,7 @@ _{{ cookiecutter.role_name }}_packages_install:
   Fedora_31: []
 
 # Detected OS
-my_os: ansible_distribution + '_' + ansible_distribution_major_version
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
 
 # Templates Copy
 {{ cookiecutter.role_name }}_templates_copy: {% raw %}"{{ _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_templates_copy['all']
