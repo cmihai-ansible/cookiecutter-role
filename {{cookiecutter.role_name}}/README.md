@@ -3,6 +3,8 @@ Role Name
 
 {{ cookiecutter.role_name }}
 
+[![Build Status](https://travis-ci.org/cmihai-ansible/{{ cookiecutter.role_name }}.svg?branch=master)](https://travis-ci.org/cmihai-ansible/{{ cookiecutter.role_name }})
+
 Requirements
 ------------
 
