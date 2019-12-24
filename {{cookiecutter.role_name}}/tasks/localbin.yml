@@ -1,6 +1,6 @@
 ---
 # install archive to /usr/local/bin
-
+{% raw %}
 - name: check if {{ item.dest }} is already installed
   command: {{ item.dest }} --version
   changed_when: false
@@ -43,4 +43,4 @@
       file:
         path: "{{ tmp_archive }}"
         state: absent
-  when: "( version_output is failed ) or ( {{ item.release }} not in pandoc_version_output.stdout )"
+  when: "( version_output is failed ) or ( {{ item.release }} not in pandoc_version_output.stdout )"{% endraw %}
