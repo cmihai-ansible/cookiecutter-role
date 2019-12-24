@@ -17,7 +17,7 @@ _{{ cookiecutter.role_name }}_packages_prereq:
   RedHat_8: []
   Fedora_31: []
 
-# install packages
+# Install packages
 _{{ cookiecutter.role_name }}_packages_install:
   all: []
   CentOS_7: []
