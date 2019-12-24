@@ -1,6 +1,30 @@
 ---
 # vars file for packages
 
+# Repo files to create
+_{{ cookiecutter.role_name }}_repos_create:
+  all: []
+    # - name:
+      # description:
+      # baseurl:
+      # enabled:
+      # gpgcheck:
+      # gpgkey:
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
+# Repo files to download
+_{{ cookiecutter.role_name }}_repos_download:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
 # Configuration templates to copy
 _{{ cookiecutter.role_name }}_templates_copy:
   all:
@@ -72,6 +96,16 @@ _{{ cookiecutter.role_name }}_packages_install:
 
 # Detected OS
 my_os: {% raw %}"{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"{% endraw %}
+
+# Repos create
+{{ cookiecutter.role_name }}_packages_create: {% raw %}"{{ _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_repos_create['all']
+  | union ( _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_repos_create[my_os]
+  | default([]) ) }}"{% endraw %}
+
+# Repos download
+{{ cookiecutter.role_name }}_repos_download: {% raw %}"{{ _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_repos_download['all']
+  | union ( _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_repos_download[my_os]
+  | default([]) ) }}"{% endraw %}
 
 # Templates Copy
 {{ cookiecutter.role_name }}_templates_copy: {% raw %}"{{ _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_templates_copy['all']
