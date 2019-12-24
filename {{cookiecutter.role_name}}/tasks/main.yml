@@ -21,6 +21,8 @@
   tags: vars
 
 - include: install.yml
+- include: users.yml
+- include: selinux.yml
 - include: template.yml
 - include: configure.yml
 - include: firewalld.yml{% endraw %}

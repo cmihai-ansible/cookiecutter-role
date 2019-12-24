@@ -13,6 +13,15 @@ Requirements
 Role Variables
 --------------
 
+```
+{{ cookiecutter.role_name }}_remove_packages: true
+{{ cookiecutter.role_name }}_enable_service: true
+{{ cookiecutter.role_name }}_enable_selinux: true
+{{ cookiecutter.role_name }}_enable_selinux: true
+{{ cookiecutter.role_name }}_firewall_configure: true
+{{ cookiecutter.role_name }}_firewall_rules:
+  - service:
+```
 
 Dependencies
 ------------
@@ -22,20 +31,25 @@ Dependencies
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - role: {{ cookiecutter.role_name }}
+```yaml
+---
+- name: Install {{ cookiecutter.role_name }} on localhost
+  hosts:
+    - localhost
+  connection: local
 
-    - name: set tuned state
+  tasks:
+    - name: {{ cookiecutter.role_name }} is configured
       import_role:
-        name: {{ cookiecutter.role_name }}
+        name: crivetimihai.{{ cookiecutter.role_name }}
       vars:
         {{ cookiecutter.role_name }}_remove_packages: true
         {{ cookiecutter.role_name }}_enable_service: true
         {{ cookiecutter.role_name }}_firewall_configure: true
         {{ cookiecutter.role_name }}_firewall_rules:
-          - service: service_name
+          - service:
       tags: {{ cookiecutter.role_name }}
+```
 
 License
 -------
