@@ -5,6 +5,15 @@ Role Name
 
 [![Build Status](https://travis-ci.org/cmihai-ansible/{{ cookiecutter.role_name }}.svg?branch=master)](https://travis-ci.org/cmihai-ansible/{{ cookiecutter.role_name }})
 
+Ansible galaxy:
+---------------
+
+[https://galaxy.ansible.com/crivetimihai/apache](https://galaxy.ansible.com/crivetimihai/{{ cookiecutter.role_name }})
+
+```bash
+ansible-galaxy install crivetimihai.{{ cookiecutter.role_name }}
+```
+
 Requirements
 ------------
 
