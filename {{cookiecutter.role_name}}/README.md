@@ -8,7 +8,7 @@ Role Name
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/crivetimihai/apache](https://galaxy.ansible.com/crivetimihai/{{ cookiecutter.role_name }})
+[https://galaxy.ansible.com/crivetimihai/{{ cookiecutter.role_name }}(https://galaxy.ansible.com/crivetimihai/{{ cookiecutter.role_name }})
 
 ```bash
 ansible-galaxy install crivetimihai.{{ cookiecutter.role_name }}
