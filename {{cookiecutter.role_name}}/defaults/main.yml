@@ -6,8 +6,9 @@
 {{ cookiecutter.role_name }}_enable_selinux: true
 {{ cookiecutter.role_name }}_copy_templates: true
 {{ cookiecutter.role_name }}_firewall_configure: true
-{{ cookiecutter.role_name }}_firewall_rules:
-  - service:
-{{ cookiecutter.role_name }}_users:
-  - user: devops
-    group: docker
+#{{ cookiecutter.role_name }}_firewall_rules:
+#  - service: ssh
+#  - port: 3389
+#{{ cookiecutter.role_name }}_users:
+#  - user: devops
+#    group: docker

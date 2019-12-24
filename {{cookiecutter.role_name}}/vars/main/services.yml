@@ -1,0 +1,9 @@
+---
+# Services to enable
+_{{ cookiecutter.role_name }}_services_enable:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []

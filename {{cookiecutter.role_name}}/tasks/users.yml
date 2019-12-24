@@ -3,7 +3,7 @@
 
 - name: defined groups are created
   group:
-    name: {% raw %}{{ item.group }}{% endraw %}
+    name: {% raw %}"{{ item.group }}"{% endraw %}
     state: present
   loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_users{{ ' }}'}}"
   become: yes

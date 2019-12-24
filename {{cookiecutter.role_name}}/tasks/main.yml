@@ -21,9 +21,9 @@
   tags: vars
 
 - include_tasks: repos-create.yml{% endraw %}
-  loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_repo_create }}"{% raw %}
+  loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_repos_create }}"{% raw %}
 - include_tasks: repos-download.yml{% endraw %}
-  loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_repo_download }}"{% raw %}
+  loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_repos_download }}"{% raw %}
 - include: install.yml
 - include: users.yml
 - include: selinux.yml

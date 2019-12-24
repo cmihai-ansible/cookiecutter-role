@@ -1,104 +1,11 @@
 ---
 # vars file for packages
 
-# Repo files to create
-_{{ cookiecutter.role_name }}_repos_create:
-  all: []
-    # - name:
-      # description:
-      # baseurl:
-      # enabled:
-      # gpgcheck:
-      # gpgkey:
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
-# Repo files to download
-_{{ cookiecutter.role_name }}_repos_download:
-  all: []
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
-# Configuration templates to copy
-_{{ cookiecutter.role_name }}_templates_copy:
-  all:
-    - src: test.j2
-      dest: /tmp/test
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
-# Services to enable
-_{{ cookiecutter.role_name }}_services_enable:
-  all: []
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
-# SELinux flags to enable
-_{{ cookiecutter.role_name }}_selinux_enable:
-  all: []
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
-# Repo RPM packages
-_{{ cookiecutter.role_name }}_packages_repos:
-  all: []
-  CentOS_7:
-    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-  RedHat_7:
-    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-  CentOS_8:
-    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-  RedHat_8:
-    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-  Fedora31: []
-
-# Remove packages: uninstall if found
-_{{ cookiecutter.role_name }}_packages_remove:
-  all: []
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
-# Prereq packages: they get installed first
-_{{ cookiecutter.role_name }}_packages_prereq:
-  all: []
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
-# install packages
-_{{ cookiecutter.role_name }}_packages_install:
-  all: []
-  CentOS_7: []
-  RedHat_7: []
-  CentOS_8: []
-  RedHat_8: []
-  Fedora_31: []
-
 # Detected OS
 my_os: {% raw %}"{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"{% endraw %}
 
 # Repos create
-{{ cookiecutter.role_name }}_packages_create: {% raw %}"{{ _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_repos_create['all']
+{{ cookiecutter.role_name }}_repos_create: {% raw %}"{{ _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_repos_create['all']
   | union ( _{% endraw %}{{ cookiecutter.role_name }}{% raw %}_repos_create[my_os]
   | default([]) ) }}"{% endraw %}
 

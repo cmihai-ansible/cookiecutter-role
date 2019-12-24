@@ -1,0 +1,27 @@
+---
+# Remove packages: uninstall if found
+_{{ cookiecutter.role_name }}_packages_remove:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
+# Prereq packages: they get installed first
+_{{ cookiecutter.role_name }}_packages_prereq:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
+# install packages
+_{{ cookiecutter.role_name }}_packages_install:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []

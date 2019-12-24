@@ -1,0 +1,39 @@
+---
+# vars file for packages
+
+# Repo files to create
+_{{ cookiecutter.role_name }}_repos_create:
+  all: []
+    # - name:
+      # description:
+      # baseurl:
+      # enabled:
+      # gpgcheck:
+      # gpgkey:
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
+# Repo files to download
+_{{ cookiecutter.role_name }}_repos_download:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
+# Repo RPM packages
+_{{ cookiecutter.role_name }}_packages_repos:
+  all: []
+  CentOS_7:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  RedHat_7:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  CentOS_8:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  RedHat_8:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  Fedora31: []
