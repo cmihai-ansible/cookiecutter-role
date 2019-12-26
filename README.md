@@ -24,3 +24,11 @@ Testing your role with molecule
 cd roles/myrole
 molecule test
 ```
+
+TODO
+----
+
+1. Add support for non x86-64 platforms (ex: ARM)
+2. Platform support: Fedora 29-31, Ubuntu 18.04+, Amazon Linux
+3. Support for packer and building images and containers
+4. Support for vagrant
