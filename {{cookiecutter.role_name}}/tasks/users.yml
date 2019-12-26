@@ -6,12 +6,12 @@
     name: {% raw %}"{{ item.group }}"{% endraw %}
     state: present
   loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_users{{ ' }}'}}"
-  become: yes
+  become: true
 
 - name: users added to secondary groups
   user:
     name: {% raw %}"{{ item.user }}"{% endraw %}
-    append: yes
+    append: true
     groups: libvirt
-  become: yes
+  become: true
   loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_users{{ ' }}'}}"
