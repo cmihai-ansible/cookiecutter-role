@@ -1,13 +1,13 @@
 ---
 # install archive to /usr/local/bin
 {% raw %}
-- name: check if {{ item.dest }} is already installed
-  command: {{ item.dest }} --version
+- name: "check if {{ item.dest }} is already installed"
+  command: "{{ item.dest }} --version"
   changed_when: false
-  ignore_errors: yes
+  ignore_errors: true
   register: version_output
 
-- name: install {{ item.name }} if not already installed
+- name: "install {{ item.name }} if not already installed"
   block:
     - name: unpacking tools preset
       package:
@@ -24,20 +24,20 @@
         suffix: temp
       register: tmp_archive
 
-    - name: download {{ item.name }}
+    - name: "download {{ item.name }}"
       get_url:
         url: "{{ item.url }}"
         dest: "{{ tmp_archive }}"
         checksum: "sha256:{{ item.sha256 }}"
 
-    - name: unarchive {{ item.name }}
+    - name: "unarchive {{ item.name }}"
       unarchive:
         src: "{{ tmp_archive }}"
         dest: "{{ item.dir }}"
         extra_opts:
           - --strip=1
-        remote_src: yes
-      become: yes
+        remote_src: true
+      become: true
 
     - name: delete temp file
       file:
