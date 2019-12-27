@@ -1,12 +1,12 @@
 ---{% raw %}
 - name: RPM key is imported and repo file is created
   block:
-    - name: "install {{ item.gpgkey }} rpm key"
+    - name: rpm gpg key is installed
       rpm_key:
         state: present
         key: "{{ item.gpgkey }}"
 
-    - name: create rpm repo file
+    - name: rpm repo file is created
       yum_repository:
         name: "{{ item.name }}"
         description: "{{ item.description | default(omit) }}"
@@ -14,4 +14,29 @@
         enabled: "{{ item.enabled | default(1) }}"
         gpgcheck: "{{ item.gpgcheck | default(0) }}"
         gpgkey: "{{ item.gpgkey | default(omit) }}"
-  become: true{% endraw %}
+  become: true
+  when:
+    - ansible_distribution == "RedHat"
+      or ansible_distribution == "CentOS"
+      or ansible_distribution == "Fedora"
+
+- name: DEB key is imported and apt file is create
+  block:
+    - name: gpg is installed
+      package:
+        name: gnupg
+        state: present
+
+    - name: apt gpg key is present
+      apt_key:
+        state: present
+        url: "{{ item.gpgkey }}"
+
+    - name: apt repository file is created
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state | default('present') }}"
+        filename: "{{ item.filename }}"
+  become: true
+  when:
+    - ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"{% endraw %}

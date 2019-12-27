@@ -1,13 +1,13 @@
 ---
 # install archive to /usr/local/bin
 {% raw %}
-- name: "check if {{ item.dest }} is already installed"
+- name: "check if binary already installed"
   command: "{{ item.dest }} --version"
   changed_when: false
   ignore_errors: true
   register: version_output
 
-- name: "install {{ item.name }} if not already installed"
+- name: install if binary not present
   block:
     - name: unpacking tools preset
       package:
@@ -24,13 +24,13 @@
         suffix: temp
       register: tmp_archive
 
-    - name: "download {{ item.name }}"
+    - name: download archive
       get_url:
         url: "{{ item.url }}"
         dest: "{{ tmp_archive }}"
         checksum: "sha256:{{ item.sha256 }}"
 
-    - name: "unarchive {{ item.name }}"
+    - name: unarchive
       unarchive:
         src: "{{ tmp_archive }}"
         dest: "{{ item.dir }}"
