@@ -10,8 +10,8 @@
 
 - name: users added to secondary groups
   user:
-    name: {% raw %}"{{ item.user }}"{% endraw %}
+    name: {% raw %}"{{ item.user }}"
     append: true
-    groups: libvirt
-  become: true
+    groups: "{{ item.group }}"
+  become: true{% endraw %}
   loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_users{{ ' }}'}}"
