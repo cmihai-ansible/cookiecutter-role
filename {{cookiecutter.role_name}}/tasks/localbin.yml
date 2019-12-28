@@ -1,7 +1,7 @@
 ---
 # install archive to /usr/local/bin
 {% raw %}
-- name: "check if binary already installed"
+- name: check if binary already installed
   command: "{{ item.dest }} --version"
   changed_when: false
   ignore_errors: true
@@ -43,4 +43,4 @@
       file:
         path: "{{ tmp_archive }}"
         state: absent
-  when: "( version_output is failed ) or ( {{ item.release }} not in pandoc_version_output.stdout )"{% endraw %}
+  when: "( version_output is failed ) or ( {{ item.release }}{% endraw %} not in {{ cookiecutter.role_name }}_version_output.stdout )"
