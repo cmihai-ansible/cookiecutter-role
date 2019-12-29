@@ -22,7 +22,7 @@ Requirements
 Role Variables
 --------------
 
-```
+```yaml
 {{ cookiecutter.role_name }}_remove_packages: true
 {{ cookiecutter.role_name }}_enable_service: true
 {{ cookiecutter.role_name }}_enable_selinux: true

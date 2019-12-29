@@ -1,46 +1,39 @@
 ---
-# install archive to /usr/local/bin
+# install archive to local bin dir
 {% raw %}
 - name: check if binary already installed
-  command: "{{ item.dest }} --version"
+  command: "{{ localbin_dir }}/{{ item.name }}
+    {{ item.version_command | default('--version') }}"
   changed_when: false
   ignore_errors: true
-  register: version_output
+  register: localbin_version_output
+
+- name: unpacking tools preset
+  package:
+    name:
+      - unzip
+      - tar
+      - gzip
+      - bzip2
+    state: present
+  become: true
 
 - name: install if binary not present
   block:
-    - name: unpacking tools preset
-      package:
-        name:
-          - tar
-          - gzip
-          - unzip
-        state: present
-      become: true
-
-    - name: create temporary file
-      tempfile:
-        state: file
-        suffix: temp
-      register: tmp_archive
-
     - name: download archive
       get_url:
         url: "{{ item.url }}"
-        dest: "{{ tmp_archive }}"
-        checksum: "sha256:{{ item.sha256 }}"
+        dest: "/tmp/{{ item.url | basename }}"
+        checksum: "{{ item.checksum | default(omit) }}"
 
     - name: unarchive
       unarchive:
-        src: "{{ tmp_archive }}"
-        dest: "{{ item.dir }}"
-        extra_opts:
-          - --strip=1
+        src: "/tmp/{{ item.url | basename }}"
+        dest: "{{ localbin_dir }}"
+        extra_opts: "{{ item.extra_opts | default(omit) }}"
         remote_src: true
       become: true
+      become_user: "{{ localbin_user }}"
 
-    - name: delete temp file
-      file:
-        path: "{{ tmp_archive }}"
-        state: absent
-  when: "( version_output is failed ) or ( {{ item.release }}{% endraw %} not in {{ cookiecutter.role_name }}_version_output.stdout )"
+  when: "( localbin_version_output is failed )
+    or ( item.version not in localbin_version_output.stdout )"{% endraw %}
