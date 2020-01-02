@@ -28,5 +28,5 @@
   loop: "{{ '{{ '}}{{ cookiecutter.role_name }}_{% raw %}firewall_rules }}"{% endraw %}
   notify: reload firewalld
   become: true
-  when: "{{ cookiecutter.role_name }}_firewall_configure"
+  when: {{ cookiecutter.role_name }}_firewall_configure
   tags: notest

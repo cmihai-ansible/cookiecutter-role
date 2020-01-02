@@ -46,7 +46,7 @@
       apt_repository:
         repo: "{{ item.repo }}"
         state: "{{ item.state | default('present') }}"
-        filename: "{{ item.filename }}"
+        filename: "{{ item.filename | default(omit) }}"
         update_cache: true
   become: true
   when:

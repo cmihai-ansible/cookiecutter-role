@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 COMMAND_FLAGS="--debug"
+export ANSIBLE_CALLBACK_PLUGINS="$(python3 -m ara.setup.callback_plugins)"
 
 echo "******* Testing Fedora 31 *******"
 CONTAINER_COMMAND="/usr/sbin/init" CONTAINER_DISTRO=fedora CONTAINER_VERSION=31 molecule ${COMMAND_FLAGS} test
