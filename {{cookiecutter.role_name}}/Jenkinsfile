@@ -1,54 +1,37 @@
+pipeline {
+    agent any
 
-node() {
-  stage ("Checkout scm") {
-                checkout scm
-        }
+    environment {
+        PATH = "/usr/local/bin:${env.PATH}"
+    }
 
-        stage ("install ansible and molecule") {
+    dir('subDir') {
+        checkout scm
+    }
+
+    stages {
+        stage('Install tools') {
+            steps {
                 sh """
-                pip3 install --user --upgrade molecule[docker] ansible yamllint ansible-lint
+                python3 -m venv ~/molecule-libvirt
+                source ~/molecule-libvirt/bin/activate
+                pip3 install --upgrade pip
+                pip3 install --upgrade molecule molecule[docker] ansible yamllint ansible-lint python-vagrant
                 """
+            }
         }
-
-        stage ("molecule lint") {
+        stage('Test') {
+            steps {
                 sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule lint -s kvm
+                source ~/molecule-libvirt/bin/activate
+                cd apache
+                echo $PATH
+                echo $PWD
+                ls -la
+                which molecule
+                molecule --debug test -s kvm
                 """
+            }
         }
-
-        stage ("molecule create") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule create -s kvm
-                """
-        }
-
-        stage ("molecule converge") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule converge -s kvm
-                """
-        }
-
-        stage ("molecule idempotence") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule idempotence -s kvm
-                """
-        }
-
-        stage ("molecule verify") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule verify -s kvm
-                """
-        }
-
-        stage ("molecule destroy") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule destroy -s kvm
-                """
-        }
+    }
 }

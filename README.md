@@ -5,9 +5,14 @@ Install prerequisities
 ----------------------
 
 ```bash
-pip3 install --user ansible molecule[docker]
-pip3 install --user ansible molecule[podman]
-pip3 install --upgrade --user molecule-libvirt libvirt python-vagrant
+# Using venv
+python3 -m venv ~/ansible-molecule
+source ~/ansible molecule/bin/activate
+
+# Install python modules
+pip3 install --upgrade pip
+pip3 install --upgrade ansible "molecule[docker]" "molecule[podman]"
+pip3 install --upgrade molecule-libvirt libvirt python-vagrant
 ```
 
 Creating a new role
