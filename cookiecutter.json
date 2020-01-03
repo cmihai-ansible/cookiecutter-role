@@ -4,6 +4,6 @@
     "author_information": "[Mihai Criveti](https://www.linkedin.com/in/crivetimihai/)",
     "description": "{{ cookiecutter.role_name.capitalize() }}",
     "company": "Mihai Criveti",
-    "license": "MIT",
+    "license": ["MIT", "BSD-3"],
     "min_ansible_version": 2.4
 }

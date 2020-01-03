@@ -11,17 +11,17 @@
 - name: prereq repositories are installed
   package:
     name: {% raw %}"{{ {% endraw %}{{ cookiecutter.role_name }}_{% raw %}packages_repos }}"{% endraw %}
-    state: present
+    state: {% raw %}"{{ {% endraw %}{{ cookiecutter.role_name }}_{% raw %}packages_state }}"{% endraw %}
   become: true
 
 - name: prereq packages are installed
   package:
     name: {% raw %}"{{ {% endraw %}{{ cookiecutter.role_name }}_{% raw %}packages_prereq }}"{% endraw %}
-    state: present
+    state: {% raw %}"{{ {% endraw %}{{ cookiecutter.role_name }}_{% raw %}packages_state }}"{% endraw %}
   become: true
 
 - name: packages are installed
   package:
     name: {% raw %}"{{ {% endraw %}{{ cookiecutter.role_name }}_{% raw %}packages_install }}"{% endraw %}
-    state: present
+    state: {% raw %}"{{ {% endraw %}{{ cookiecutter.role_name }}_{% raw %}packages_state }}"{% endraw %}
   become: true

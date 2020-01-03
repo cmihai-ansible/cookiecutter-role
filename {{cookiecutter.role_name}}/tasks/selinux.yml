@@ -6,7 +6,7 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     persistent: "{{ item.persistent | default('false') }}"{% endraw %}
-  with_items: "{{ '{{ ' }}{{ cookiecutter.role_name }}_selinux_booleans }}"
+  loop: "{{ '{{ ' }}{{ cookiecutter.role_name }}_selinux_booleans }}"
   when:
     - ansible_selinux.status == "enabled"
     - {{ cookiecutter.role_name }}_enable_selinux
