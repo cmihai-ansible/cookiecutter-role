@@ -6,6 +6,8 @@ Install prerequisities
 
 ```bash
 pip3 install --user ansible molecule[docker]
+pip3 install --user ansible molecule[podman]
+pip3 install --upgrade --user molecule-libvirt libvirt
 ```
 
 Creating a new role
@@ -34,6 +36,8 @@ Install the libvirt driver for vagrant:
 sudo yum install libvirt-devel ruby-devel gcc
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 export VAGRANT_PREFERRED_PROVIDERS=libvirt
+export CONFIGURE_ARGS="with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib64"
+vagrant plugin install vagrant-libvirt
 ```
 
 Use KVM:
