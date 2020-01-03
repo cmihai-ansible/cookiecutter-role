@@ -7,7 +7,7 @@ Install prerequisities
 ```bash
 pip3 install --user ansible molecule[docker]
 pip3 install --user ansible molecule[podman]
-pip3 install --upgrade --user molecule-libvirt libvirt
+pip3 install --upgrade --user molecule-libvirt libvirt python-vagrant
 ```
 
 Creating a new role
