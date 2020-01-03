@@ -13,7 +13,7 @@ Creating a new role
 
 ```bash
 molecule init template \
-  --url https://github.com/cmihai-ansible/ansible-cookiecutter-role.git \
+  --url https://github.com/cmihai-ansible/cookiecutter-role.git \
   --role-name myrole
 ```
 
