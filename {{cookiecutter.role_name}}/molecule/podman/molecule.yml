@@ -3,22 +3,26 @@ dependency:
   name: galaxy
   role-file: requirements.yml
 driver:
-  name: vagrant
+  name: podman
   provider:
-    name: libvirt
-    type: libvirt
-    options:
-      memory: 1024
-      cpus: 1
+    name: podman
 lint:
   name: yamllint
   options:
     config-file: molecule/resources/yaml-lint.yml
 platforms:
-  - name: ${KVM_NAME:-centos8}
-    box: ${KVM_DISTRO:-centos/8}
-    groups:
-      - rhel
+  - name: "{{ cookiecutter.role_name }}-${CONTAINER_DISTRO:-centos}_${CONTAINER_VERSION:-7}"
+    image: "${CONTAINER_DISTRO:-centos}:${CONTAINER_VERSION:-7}"
+    registry:
+      url: "${CONTAINER_REGISTRY:-docker.io}"
+    dockerfile: ../resources/Dockerfile.j2
+    privileged: true
+    pre_build_image: false
+    volume_mounts:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
+    command: ${CONTAINER_COMMAND:-"/sbin/init"}
+    environment:
+      container: podman
 provisioner:
   name: ansible
   config_options:
@@ -37,7 +41,7 @@ provisioner:
       instance:
         ansible_user: ansible
 scenario:
-  name: kvm  # optional
+  name: podman  # optional
   create_sequence:
     - dependency
     - create

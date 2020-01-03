@@ -22,3 +22,6 @@ CONTAINER_COMMAND="/sbin/init" CONTAINER_DISTRO=debian CONTAINER_VERSION=10 mole
 
 echo "******* Testing Ubuntu 18.04 *******"
 CONTAINER_COMMAND="/sbin/init" CONTAINER_DISTRO=ubuntu CONTAINER_VERSION=18.04 molecule ${COMMAND_FLAGS} test
+
+echo "******* Testing Ubuntu 18.04 *******"
+KVM_NAME=centos8 KVM_DISTRO="centos/8" molecule ${COMMAND_FLAGS} test

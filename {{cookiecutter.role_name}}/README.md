@@ -59,6 +59,24 @@ Example Playbook
       tags: {{ cookiecutter.role_name }}
 ```
 
+Using KVM
+---------
+
+Install the libvirt driver for vagrant:
+
+```bash
+sudo yum install libvirt-devel ruby-devel gcc
+export VAGRANT_DEFAULT_PROVIDER=libvirt
+export VAGRANT_PREFERRED_PROVIDERS=libvirt
+```
+
+Use KVM:
+
+```bash
+molecule -s kvm create
+molecule -s kvm login
+```
+
 License
 -------
 
