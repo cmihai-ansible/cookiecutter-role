@@ -60,6 +60,15 @@ vagrant global-status
 vagrant destroy ID
 ```
 
+Using podman
+------------
+
+```
+molecule -s podman test
+```
+
+On CentOS 8, you need to enable CR to obtain podman 1.4.2.
+
 TODO
 ----
 
