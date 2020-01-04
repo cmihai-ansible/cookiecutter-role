@@ -38,6 +38,7 @@ Using KVM
 Install the libvirt driver for vagrant:
 
 ```bash
+sudo yum install https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.rpm
 sudo yum install libvirt-devel ruby-devel gcc
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 export VAGRANT_PREFERRED_PROVIDERS=libvirt
