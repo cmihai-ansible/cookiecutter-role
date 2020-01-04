@@ -15,8 +15,8 @@ lint:
   options:
     config-file: molecule/resources/yaml-lint.yml
 platforms:
-  - name: ${KVM_NAME:-centos8}
-    box: ${KVM_DISTRO:-centos/8}
+  - name: ${KVM_NAME:-centos7}
+    box: ${KVM_DISTRO:-centos/7}
     groups:
       - rhel
 provisioner:
