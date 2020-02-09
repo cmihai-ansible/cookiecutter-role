@@ -8,10 +8,10 @@ Role Name
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/crivetimihai/{{ cookiecutter.role_name }}](https://galaxy.ansible.com/crivetimihai/{{ cookiecutter.role_name }})
+[https://galaxy.ansible.com/devops-toolbox.{{ cookiecutter.role_name }}](https://galaxy.ansible.com/devops-toolbox.{{ cookiecutter.role_name }})
 
 ```bash
-ansible-galaxy install crivetimihai.{{ cookiecutter.role_name }}
+ansible-galaxy install devops-toolbox.{{ cookiecutter.role_name }}
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: {{ cookiecutter.role_name }} is configured
       import_role:
-        name: crivetimihai.{{ cookiecutter.role_name }}
+        name: devops-toolbox.{{ cookiecutter.role_name }}
       vars:
         {{ cookiecutter.role_name }}_packages_state: present
         {{ cookiecutter.role_name }}_remove_packages: true
