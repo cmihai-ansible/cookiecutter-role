@@ -16,6 +16,9 @@ _{{ cookiecutter.role_name }}_repos_create:
   RedHat_8: []
   Fedora_35: []
   Debian_10: []
+    # - repo:
+      # filename:
+      # gpgkey:
   Ubuntu_18: []
   Ubuntu_20: []
 
