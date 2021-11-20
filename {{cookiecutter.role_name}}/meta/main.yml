@@ -10,7 +10,7 @@ galaxy_info:
   platforms:
     - name: Fedora
       versions:
-        - 31
+        - 35
     - name: EL
       versions:
         - 7
@@ -21,6 +21,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - bionic
+        - focal
 
   galaxy_tags:
     - rhel

@@ -13,7 +13,7 @@ driver:
 lint:
   name: yamllint
   options:
-    config-file: molecule/resources/yaml-lint.yml
+    config-file: molecule/resources/.yaml-lint
 platforms:
   - name: ${KVM_NAME:-centos7}
     box: ${KVM_DISTRO:-centos/7}

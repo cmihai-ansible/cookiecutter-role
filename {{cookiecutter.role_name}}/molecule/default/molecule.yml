@@ -9,7 +9,7 @@ driver:
 lint:
   name: yamllint
   options:
-    config-file: molecule/resources/yaml-lint.yml
+    config-file: molecule/resources/.yaml-lint
 platforms:
   - name: "{{ cookiecutter.role_name }}-${CONTAINER_DISTRO:-centos}_${CONTAINER_VERSION:-7}"
     image: "${CONTAINER_DISTRO:-centos}:${CONTAINER_VERSION:-7}"
