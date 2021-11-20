@@ -6,9 +6,10 @@ _{{ cookiecutter.role_name }}_packages_remove:
   RedHat_7: []
   CentOS_8: []
   RedHat_8: []
-  Fedora_31: []
+  Fedora_35: []
   Debian_10: []
   Ubuntu_18: []
+  Ubuntu_20: []
 
 # Prereq packages: they get installed first
 _{{ cookiecutter.role_name }}_packages_prereq:
@@ -17,9 +18,10 @@ _{{ cookiecutter.role_name }}_packages_prereq:
   RedHat_7: []
   CentOS_8: []
   RedHat_8: []
-  Fedora_31: []
+  Fedora_35: []
   Debian_10: []
   Ubuntu_18: []
+  Ubuntu_20: []
 
 # Install packages
 _{{ cookiecutter.role_name }}_packages_install:
@@ -28,6 +30,7 @@ _{{ cookiecutter.role_name }}_packages_install:
   RedHat_7: []
   CentOS_8: []
   RedHat_8: []
-  Fedora_31: []
+  Fedora_35: []
   Debian_10: []
   Ubuntu_18: []
+  Ubuntu_20: []

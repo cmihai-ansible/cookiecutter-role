@@ -6,6 +6,7 @@ _{{ cookiecutter.role_name }}_selinux_enable:
   RedHat_7: []
   CentOS_8: []
   RedHat_8: []
-  Fedora_31: []
+  Fedora_35: []
   Debian_10: []
   Ubuntu_18: []
+  Ubuntu_20: []

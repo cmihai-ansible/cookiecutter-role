@@ -14,9 +14,10 @@ _{{ cookiecutter.role_name }}_repos_create:
   RedHat_7: []
   CentOS_8: []
   RedHat_8: []
-  Fedora_31: []
+  Fedora_35: []
   Debian_10: []
   Ubuntu_18: []
+  Ubuntu_20: []
 
 # Repo files to download
 _{{ cookiecutter.role_name }}_repos_download:
@@ -25,9 +26,10 @@ _{{ cookiecutter.role_name }}_repos_download:
   RedHat_7: []
   CentOS_8: []
   RedHat_8: []
-  Fedora_31: []
+  Fedora_35: []
   Debian_10: []
   Ubuntu_18: []
+  Ubuntu_20: []
 
 # Repo RPM packages
 _{{ cookiecutter.role_name }}_packages_repos:
@@ -40,6 +42,7 @@ _{{ cookiecutter.role_name }}_packages_repos:
     - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
   RedHat_8:
     - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-  Fedora31: []
+  Fedora_35: []
   Debian_10: []
   Ubuntu_18: []
+  Ubuntu_20: []
